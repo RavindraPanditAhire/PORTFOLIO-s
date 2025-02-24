@@ -240,62 +240,55 @@
       </section>
 
       <!--===== YOUTUBE SECTION =====-->
+
       <section class="youtube channel" id="youtube">
-        <h2>My YouTube Channel</h2>
+        <h2 class="section-title">
+          <a href="https://www.youtube.com/channel/UCCAc9mZggYozOldXX_X5jBQ" target="_blank">
+              My YouTube Channel: <span style="color: green;">CyberTechX_ravin</span>
+          </a>
+      </h2>
         <div class="video-gallery">
-          <div class="video">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/5FY0ifeSeuk?si=xnNV70fy4mxskZA8"
-                title="Office 2021 Installation and Activation Tutorial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p>Office 2021 installation and Activation for free</p>
-          </div>
-          <div class="video">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/Fq-K8veA3lA?si=uutrVpECcqJJbxl4"
-                title="Jupyter Notebook Setup Tutorial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p>Download and setup jupyter notebook errorfree</p>
-          </div>
-          <div class="video">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/tEVqxz_tvCc?si=_e4RQslV-wB9SUM6"
-                title="Kali Linux Installation Guide"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p>
-              Kali Linux installation and setup in VM Ware Worksttion (virtual
-              machine)
-            </p>
-          </div>
-          <div class="video">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/t1uUmfUSh-4?si=Xf2R69Bekifbm2n_"
-                title="JDK Environment Setup Tutorial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p>JDK (Java) Environment variable setup in Easy steps</p>
-          </div>
+            <!-- Video items will be generated here by JavaScript -->
         </div>
-      </section>
+    </section>
+    
+    <script>
+        const videos = [
+            { src: "https://www.youtube.com/embed/O33OpaYARQo", title: "Free Host a Website on Firebase for FREE in 2025" },
+            { src: "https://www.youtube.com/embed/5FY0ifeSeuk", title: "Install & Activate Office 2021 for FREE" },
+            { src: "https://www.youtube.com/embed/tEVqxz_tvCc", title: "Kali Linux Installation Guide" },
+            { src: "https://www.youtube.com/embed/Fq-K8veA3lA", title: "How to Download & Install Jupyter Notebook" },
+            { src: "https://www.youtube.com/embed/5YdWcMRMQag", title: "How to Download & Install Jupyter Notebook" },
+            { src: "https://www.youtube.com/embed/-xvuJMuncsA", title: "Install & Run Ubuntu on VMware Workstation" },
+            { src: "https://www.youtube.com/embed/t1uUmfUSh-4", title: "How to Set JDK Path in Windows" },
+            { src: "https://www.youtube.com/embed/Jdc6GEMAdiA", title: "MinGW & C++ Setup in 2024 with VS Code" },
+            { src: "https://www.youtube.com/embed/2Xi0kwbqitA", title: "Video 9" },
+            { src: "https://www.youtube.com/embed/ywoR-nNwWsI", title: "Video 10" }
+        ];
+        
+        const videoGallery = document.querySelector('.video-gallery');
+        videos.forEach(video => {
+            const videoDiv = document.createElement('div');
+            videoDiv.classList.add('video');
+            videoDiv.innerHTML = `
+                <div class="video-wrapper">
+                    <iframe data-src="${video.src}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            `;
+            videoGallery.appendChild(videoDiv);
+        });
+        
+        // Lazy load videos
+        const lazyLoadVideos = () => {
+            const iframes = document.querySelectorAll('iframe[data-src]');
+            iframes.forEach(iframe => {
+                iframe.src = iframe.dataset.src;
+                iframe.removeAttribute('data-src');
+            });
+        };
+        
+        window.addEventListener('load', lazyLoadVideos);
+    </script>
 
       <!--===== WORK =====-->
       <section class="work section" id="work">
